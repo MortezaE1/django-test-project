@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+    <a href="{% url 'create' %}" class="btn btn-success">Create</a><br><br>
+    <h4>Count Todos : {{ todos|length }}</h4>
+    <div class="card">
+    {% for todo in todos %}
+        <a class="card-body" href="{% url 'detail' todo.id %}">{{ todo.title }}</a>
+        <br>
+    {% endfor %}
+    </div>
+{% endblock %}
